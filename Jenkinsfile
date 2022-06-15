@@ -9,8 +9,10 @@ pipeline{
 //     // }
 // }
     tools {
-        maven "MAVEN"
-    }
+  maven 'test'
+  git 'Default'
+}
+
     stages{
         stage("A"){
             steps{

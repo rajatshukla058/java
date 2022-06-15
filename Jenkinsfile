@@ -8,6 +8,9 @@ pipeline{
 //     //     args  '-v /tmp:/tmp'
 //     // }
 // }
+    tools {
+        maven "MAVEN"
+    }
     stages{
         stage("A"){
             steps{

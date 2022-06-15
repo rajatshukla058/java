@@ -1,17 +1,19 @@
 pipeline{
     // 
-    agent {
-    docker {
-        image 'maven:3.8.1-adoptopenjdk-11'
-        // label 'my-defined-label'
-        args  '-v /tmp:/tmp'
-    }
-}
+    agent any
+    // {
+//     // docker {
+//     //     image 'maven:3.8.1-adoptopenjdk-11'
+//     //     // label 'my-defined-label'
+//     //     args  '-v /tmp:/tmp'
+//     // }
+// }
     stages{
         stage("A"){
             steps{
                 echo "========executing A========"
                 sh "mvn clean install"
+                
             }
             post{
                 always{

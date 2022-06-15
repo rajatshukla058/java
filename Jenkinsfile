@@ -1,22 +1,23 @@
 pipeline{
     // 
-    agent any
-    // {
-//     // docker {
-//     //     image 'maven:3.8.1-adoptopenjdk-11'
-//     //     // label 'my-defined-label'
-//     //     args  '-v /tmp:/tmp'
-//     // }
-// }
-    tools {
-  maven 'test'
-//   git 'Default'
+    agent 
+    {
+    docker {
+        image 'maven:3.8.1-adoptopenjdk-11'
+        // label 'my-defined-label'
+        args  '-v /tmp:/tmp'
+    }
 }
+//     tools {
+//   maven 'test'
+// //   git 'Default'
+// }
 
     stages{
         stage("A"){
             steps{
                 echo "========executing A========"
+                dir "/var/lib/jenkins/workspace/test2/"
                 sh "mvn clean install"
                 
             }

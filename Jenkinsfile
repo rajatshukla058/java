@@ -63,11 +63,24 @@ pipeline{
         }
         stage("building dockerfile..........."){
             steps{
-               sh "docker build -t webapp:latest ."
+               
                sh ('/tmp/remove_container.sh')
-               sh "docker run -d  -p 8081:8080 --name tomcat webapp"
+               sh "docker rmi webapp:latest"
+               sh "docker build -t webapp:latest ."
+               sh "docker run -d  -p 8081:8080 --name tomcat webapp:latest"
                
             }
         }
+        stage('Docker Push') {
+      agent any
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+          sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+          sh 'docker push 1125431058/webapp:latest'
+        }
+      }
     }
 }
+
+
+

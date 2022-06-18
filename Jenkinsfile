@@ -65,9 +65,9 @@ pipeline{
             steps{
                
                sh ('/tmp/remove_container.sh')
-               sh "docker rmi webapp:latest"
-               sh "docker build -t webapp:latest ."
-               sh "docker run -d  -p 8081:8080 --name tomcat webapp:latest"
+               sh "docker rmi 1125431058/webapp:latest"
+               sh "docker build -t 1125431058/webapp:latest ."
+               sh "docker run -d  -p 8081:8080 --name tomcat 1125431058/webapp:latest"
                
             }
         }

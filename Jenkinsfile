@@ -92,7 +92,7 @@ pipeline{
     stages{
        stage('GetCode'){
             steps{
-                git 'https://github.com/rajatshukla058/java.git'
+                sh 'git clone https://github.com/rajatshukla058/java.git'
             }
          }        
        stage('Build'){

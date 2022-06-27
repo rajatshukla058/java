@@ -90,11 +90,11 @@ pipeline{
     //     PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
     // }
     stages{
-       stage('GetCode'){
-            steps{
-                sh 'git clone https://github.com/rajatshukla058/java.git'
-            }
-         }        
+//        stage('GetCode'){
+//             steps{
+//                 sh 'git clone https://github.com/rajatshukla058/java.git'
+//             }
+//          }        
        stage('Build'){
             steps{
                 sh 'mvn clean install'

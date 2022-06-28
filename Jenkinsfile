@@ -44,7 +44,7 @@ pipeline{
         }
       }
       stage('Deploy')
-      step {
+      steps {
         sh "docker run -d  -p 8081:8080 --name tomcat 1125431058/webapp:latest"
       }
         }

@@ -4,12 +4,12 @@ pipeline{
     //     PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
     // }
     stages{
-       stage('git'){
-            steps{
-                git credentialsId: '93005e4c-b144-43a9-b814-4bf5f161df38', url: 'https://github.com/rajatshukla058/java.git'
-            }
-         }
-         }
+    //    stage('git'){
+    //         steps{
+    //             git credentialsId: '93005e4c-b144-43a9-b814-4bf5f161df38', url: 'https://github.com/rajatshukla058/java.git'
+    //         }
+    //      }
+          }
 
        stage('Build'){
             steps{

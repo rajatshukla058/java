@@ -33,8 +33,8 @@ pipeline{
                sh "docker build -t 1125431058/webapp:latest ."
                
                
-    //         }
-    //     }
+             }
+        }
     //     stage('Docker Push') {
     // //   agent any
     //   steps {
@@ -47,7 +47,7 @@ pipeline{
     //   steps {
     //     sh "docker run -d  -p 8081:8080 --name tomcat 1125431058/webapp:latest"
     //   }
-    //     }
+    // }
 
 
        

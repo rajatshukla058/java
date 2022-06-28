@@ -25,12 +25,12 @@ pipeline{
         sh "mvn sonar:sonar"
     }
         }
-    //    stage("building dockerfile..........."){
-    //         steps{
+       stage("building dockerfile..........."){
+            steps{
                
-    //            sh ('/tmp/remove_container.sh')
-    //            sh "docker rmi 1125431058/webapp:latest"
-    //            sh "docker build -t 1125431058/webapp:latest ."
+               sh ('/tmp/remove_container.sh')
+               sh "docker rmi 1125431058/webapp:latest"
+               sh "docker build -t 1125431058/webapp:latest ."
                
                
     //         }

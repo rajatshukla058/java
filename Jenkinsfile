@@ -9,11 +9,11 @@ pipeline{
                sh "mvn clean install -DskipTests"
             }
             
-//             post{
-//                 always{
-//                 junit '**/target/surefire-reports/TEST-*.xml'
-//             }
-//             }
+            post{
+                always{
+                junit '**/target/surefire-reports/TEST-*.xml'
+            }
+            }
         }
         stage('SonarQube analysis') {
 //    def scannerHome = tool 'SonarScanner 4.0';

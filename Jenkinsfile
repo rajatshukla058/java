@@ -109,7 +109,31 @@ pipeline{
         sh "mvn sonar:sonar"
     }
         }
+        stage("building dockerfile..........."){
+            steps{
+               
+               sh ('/tmp/remove_container.sh')
+               sh "docker rmi 1125431058/webapp:latest"
+               sh "docker build -t 1125431058/webapp:latest ."
+               
+               
+            }
         }
+        stage('Docker Push') {
+    //   agent any
+      steps {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
+          sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
+          sh 'docker push 1125431058/webapp:latest'
+        }
+      }
+      stage('Deploy')
+      step {
+        sh "docker run -d  -p 8081:8080 --name tomcat 1125431058/webapp:latest"
+      }
+        }
+
+
        
     }
 }
